@@ -31,7 +31,7 @@ VendorName VARCHAR (255) NOT NULL,
 VendorGender VARCHAR (10) CHECK (VendorGender IN ('Male','Female')),
 VendorEmail VARCHAR (255) NOT NULL,
 VendorDOB DATE NOT NULL,
-VendorAddress VARCHAR (255) NOT NULL
+VendorAddressÂ VARCHARÂ (255) NOT NULL
 )
 
 --MsProductCategory
@@ -40,7 +40,7 @@ ProductCategoryID CHAR (5) PRIMARY KEY CHECK (ProductCategoryID LIKE 'CT[0-9][0-
 ProductCategoryName VARCHAR (255) CHECK (ProductCategoryName IN 
 ('Mobile Phones','Smartphones','Android Phones','IOS Devices',
 'Budget Smartphones','Flagship Phones','Phone Accessories',
-'Phone Cases','Wireless Earbuds','Mobile Phone Chargers'))
+'Phone Cases','Wireless Earbuds','Mobile PhoneÂ Chargers'))
 )
 
 --MsProduct
@@ -49,7 +49,7 @@ ProductID CHAR(5) PRIMARY KEY CHECK (ProductID LIKE 'PT[0-9][0-9][0-9]'),
 ProductCategoryID CHAR (5) REFERENCES MsProductCategory(ProductCategoryID) ,
 ProductName VARCHAR (255) CHECK (LEN (ProductName) > 10),
 ProductPrice FLOAT CHECK (ProductPrice BETWEEN 1000 AND 2200),
-ProductWeight INT NOT NULL
+ProductWeightÂ INTÂ NOTÂ NULL
 )
 
 --PurchaseHeader
@@ -142,7 +142,7 @@ VALUES
 ('CT007', 'Phone Accessories'),
 ('CT008', 'Phone Cases'),
 ('CT009', 'Wireless Earbuds'),
-('CT010', 'Mobile Phone Chargers')
+('CT010', 'Mobile PhoneÂ Chargers')
 
 INSERT INTO MsProduct (ProductID, ProductCategoryID, ProductName, ProductPrice, ProductWeight)
 VALUES 
@@ -247,21 +247,21 @@ VALUES
 ('PH025', 'PT001', 3),
 ('PH025', 'PT002', 2),
 ('PH025', 'PT008', 1),
-('PH026', 'PT011', 5),
-('PH026', 'PT012', 6),
-('PH026', 'PT013', 2),
-('PH027', 'PT001', 7),
-('PH027', 'PT002', 4),
-('PH027', 'PT003', 7),
-('PH028', 'PT008', 2),
-('PH028', 'PT009', 4),
-('PH028', 'PT004', 6),
-('PH029', 'PT002', 5),
-('PH029', 'PT015', 3),
-('PH029', 'PT014', 6),
-('PH030', 'PT012', 5),
-('PH030', 'PT015', 4),
-('PH030', 'PT006', 6)
+('PH001', 'PT011', 5),
+('PH002', 'PT012', 6),
+('PH003', 'PT013', 2),
+('PH004', 'PT001', 7),
+('PH005', 'PT002', 4),
+('PH006', 'PT003', 7),
+('PH007', 'PT008', 2),
+('PH008', 'PT009', 4),
+('PH009', 'PT004', 6),
+('PH010', 'PT002', 5),
+('PH011', 'PT015', 3),
+('PH012', 'PT014', 6),
+('PH013', 'PT012', 5),
+('PH014', 'PT015', 4),
+('PH015', 'PT006', 6)
 
 
 
@@ -294,19 +294,23 @@ VALUES
 ('SH024', 'PT009', 2),
 ('SH025', 'PT007', 5),
 ('SH025', 'PT006', 5),
-('SH026', 'PT011', 5),
-('SH026', 'PT012', 6),
-('SH026', 'PT013', 2),
-('SH027', 'PT001', 7),
-('SH027', 'PT002', 4),
-('SH027', 'PT003', 7),
-('SH028', 'PT008', 2),
-('SH028', 'PT009', 4),
-('SH028', 'PT004', 6),
-('SH029', 'PT002', 5),
-('SH029', 'PT015', 3),
-('SH029', 'PT014', 6),
-('SH030', 'PT012', 5),
-('SH030', 'PT015', 4),
-('SH030', 'PT006', 6)
+('SH001', 'PT011', 5),
+('SH002', 'PT012', 6),
+('SH003', 'PT013', 2),
+('SH004', 'PT001', 7),
+('SH005', 'PT002', 4),
+('SH006', 'PT003', 7),
+('SH007', 'PT008', 2),
+('SH008', 'PT009', 4),
+('SH009', 'PT004', 6),
+('SH010', 'PT002', 5),
+('SH011', 'PT015', 3),
+('SH012', 'PT014', 6),
+('SH013', 'PT012', 5),
+('SH014', 'PT015', 4),
+('SH015', 'PT006', 6)
 
+SELECT * FROM PurchaseHeader
+SELECT * FROM PurchaseDetail
+SELECT * FROM SaleHeader
+SELECT * FROM SaleDetail
